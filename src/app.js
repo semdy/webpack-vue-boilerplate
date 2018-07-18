@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
 import { createStore } from './store'
-import { createRouter } from './routes/router'
+import { createRouter } from './routes'
 import { sync } from 'vuex-router-sync'
 import titleMixin from './util/title'
 import * as filters from './util/filters'
+
+Vue.config.productionTip = false
 
 // mixin for handling title
 Vue.mixin(titleMixin)

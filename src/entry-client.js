@@ -3,6 +3,12 @@ import 'es6-promise/auto'
 import { createApp } from './app'
 import ProgressBar from './components/ProgressBar.vue'
 
+// requires and returns all modules that match
+const requireAll = requireContext => requireContext.keys().map(requireContext)
+// import all svg
+const req = require.context('./assets/icons', true, /\.svg$/)
+requireAll(req)
+
 // global progress bar
 const bar = Vue.prototype.$bar = new Vue(ProgressBar).$mount()
 document.body.appendChild(bar.$el)

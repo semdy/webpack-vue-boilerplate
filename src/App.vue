@@ -3,7 +3,7 @@
     <header class="header">
       <nav class="inner">
         <router-link to="/" exact>
-          <img class="logo" src="~public/logo-48.png" alt="logo">
+          <img class="logo" src="~public/img/logo-48.png" alt="logo">
         </router-link>
         <router-link to="/top">Top</router-link>
         <router-link to="/new">New</router-link>
@@ -12,6 +12,7 @@
         <router-link to="/job">Jobs</router-link>
         <a class="github" href="https://github.com/vuejs/vue-hackernews-2.0" target="_blank" rel="noopener">
           Built with Vue.js
+          <icon name="angle-right"></icon>
         </a>
       </nav>
     </header>
@@ -20,6 +21,17 @@
     </transition>
   </div>
 </template>
+
+<script>
+  import Icon from './components/Icon'
+  export default {
+    name: 'app',
+
+    components: {
+      Icon
+    }
+  }
+</script>
 
 <style lang="stylus">
 body

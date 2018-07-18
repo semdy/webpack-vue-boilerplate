@@ -11,10 +11,10 @@ export function createStore () {
     state: {
       activeType: null,
       itemsPerPage: 20,
-      items: {/* [id: number]: Item */},
-      users: {/* [id: string]: User */},
+      items: {1: {name: 'semdy'}},
+      users: {'001': {name: 'semdy'}},
       lists: {
-        top: [/* number */],
+        top: [1, 2, 3, 4, 5],
         new: [],
         show: [],
         ask: [],
