@@ -5,12 +5,13 @@
   "author": "semdy <501859275@qq.com>",
   "private": true,
   "scripts": {
-    "dev": "node build/dev-server.js",
+    "dev": "node scripts/dev-server.js",
     "start": "npm run dev",
     "server": "cross-env NODE_ENV=production node server",
+    "dev:ssr": "cross-env NODE_ENV=development node server",
     "build": "npm run build:client && npm run build:server",
-    "build:client": "node build/build.js",
-    "build:server": "node build/server.js",
+    "build:client": "node scripts/build.js",
+    "build:server": "node scripts/server.js",
     "serve:dist": "pushstate-server dist",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
@@ -106,7 +107,9 @@
     "webpack-dev-middleware": "^1.12.0",
     "webpack-hot-middleware": "^2.22.3",
     "webpack-merge": "^4.1.0",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-node-externals": "^1.7.2",
+    "memory-fs": "^0.4.1",
+    "chokidar": "^2.0.4"
   },
   "engines": {
     "node": ">= 4.0.0",

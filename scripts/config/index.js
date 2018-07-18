@@ -6,9 +6,10 @@ const path = require('path')
 module.exports = {
   build: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, '..', 'dist/index.html'),
-    assetsRoot: path.resolve(__dirname, '..', 'dist'),
-    assetsSubDirectory: 'public',
+    entry: path.resolve(__dirname, '..', '..', 'src/entry-client.js'),
+    index: path.resolve(__dirname, '..', '..', 'dist/index.html'),
+    assetsRoot: path.resolve(__dirname, '..', '..', 'dist'),
+    assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
@@ -25,10 +26,11 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    index: path.resolve(__dirname, '..', 'public/index.html'),
+    entry: path.resolve(__dirname, '..', '..', 'src/entry-client.js'),
+    index: path.resolve(__dirname, '..', '..', 'public/index.html'),
     port: 8080,
     autoOpenBrowser: true,
-    assetsSubDirectory: 'public',
+    assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {},
     // CSS Sourcemaps off by default because relative paths are "buggy"
@@ -40,9 +42,10 @@ module.exports = {
   },
   server: {
     env: require('./server.env'),
+    entry: path.resolve(__dirname, '..', '..', 'src/entry-server.js'),
     port: 8080,
     autoOpenBrowser: true,
-    assetsSubDirectory: 'public',
+    assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {},
     // CSS Sourcemaps off by default because relative paths are "buggy"
