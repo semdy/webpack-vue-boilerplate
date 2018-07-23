@@ -1,5 +1,9 @@
 <template>
   <div class="user-view">
+    <div class="box">
+      <div class="flex"></div>
+      <div class="flex"></div>
+    </div>
     <template v-if="user">
       <h1>User : {{ user.id }}</h1>
       <ul class="meta">
@@ -42,6 +46,13 @@ export default {
 </script>
 
 <style lang="stylus">
+  .box
+    display: flex;
+    flex-direction column;
+    width: 200px;
+    box-shadow 0 0 1px #000;
+  .flex
+    flex: 1;
 .user-view
   background-color #fff
   box-sizing border-box
