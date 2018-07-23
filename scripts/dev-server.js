@@ -12,6 +12,7 @@ const path = require('path')
 const express = require('express')
 const webpack = require('webpack')
 const proxyMiddleware = require('http-proxy-middleware')
+const localIP = require('ip').address()
 const webpackConfig = process.env.NODE_ENV === 'testing'
   ? require('./webpack.prod.conf')
   : require('./webpack.dev.conf')
@@ -66,7 +67,7 @@ app.use(devMiddleware)
 const staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./public'))
 
-const uri = 'http://localhost:' + port
+const uri = `http://${localIP}:${port}`
 
 let _resolve
 const readyPromise = new Promise(resolve => {

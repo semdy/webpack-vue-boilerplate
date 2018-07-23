@@ -12,7 +12,7 @@
         <router-link to="/job">Jobs</router-link>
         <a class="github" href="https://github.com/vuejs/vue-hackernews-2.0" target="_blank" rel="noopener">
           Built with Vue.js
-          <icon name="angle-right"></icon>
+          <!--<icon name="angle-right"></icon>-->
         </a>
       </nav>
     </header>

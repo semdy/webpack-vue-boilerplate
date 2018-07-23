@@ -68,7 +68,7 @@ export default {
   },
 
   beforeDestroy () {
-    this.unwatchList()
+    //this.unwatchList()
   },
 
   watch: {
