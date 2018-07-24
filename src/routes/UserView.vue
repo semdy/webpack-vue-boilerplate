@@ -29,7 +29,7 @@ export default {
     }
   },
 
-  asyncData ({ store, route: { params: { id }}}) {
+  asyncData ({ store, route: { params: { id } } }) {
     return store.dispatch('FETCH_USER', { id })
   },
 

@@ -37,20 +37,6 @@ const webpackConfig = merge(baseWebpackConfig, {
       'process.env': env
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        comparisons: false,
-      },
-      mangle: {
-        safari10: true,
-      },
-      output: {
-        comments: false,
-        ascii_only: true,
-      },
-      sourceMap: true,
-    }),
     // extract css into its own file
     new ExtractTextPlugin({
       filename: utils.assetsPath('styles/[name].[contenthash:8].css')
@@ -97,6 +83,20 @@ const webpackConfig = merge(baseWebpackConfig, {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
       chunks: ['vendor']
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+        comparisons: false,
+      },
+      mangle: {
+        safari10: true,
+      },
+      output: {
+        comments: false,
+        ascii_only: true,
+      },
+      sourceMap: true,
     }),
     // copy custom static assets
     new CopyWebpackPlugin([

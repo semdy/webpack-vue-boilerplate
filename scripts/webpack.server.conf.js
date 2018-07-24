@@ -32,23 +32,20 @@ module.exports = merge(baseWebpackConfig, {
       'process.env': config.server.env
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
+    // extract css into its own file
+    new ExtractTextPlugin({
+      filename: utils.assetsPath('css/[name].[contenthash:8].css')
+    }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
         comparisons: false,
       },
-      mangle: {
-        safari10: true,
-      },
       output: {
         comments: false,
         ascii_only: true,
       },
-      sourceMap: true,
-    }),
-    // extract css into its own file
-    new ExtractTextPlugin({
-      filename: utils.assetsPath('css/[name].[contenthash:8].css')
+      sourceMap: true
     }),
     new VueSSRServerPlugin()
   ]
