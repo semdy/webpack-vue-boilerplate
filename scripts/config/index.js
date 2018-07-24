@@ -1,14 +1,14 @@
 'use strict'
 
-// see http://vuejs-templates.github.io/webpack for documentation.
 const path = require('path')
+const resolve = (entry) => path.resolve(__dirname, '..', '..', entry)
 
 module.exports = {
   build: {
     env: require('./prod.env'),
-    entry: path.resolve(__dirname, '..', '..', 'src/entry-client.js'),
-    index: path.resolve(__dirname, '..', '..', 'dist/index.html'),
-    assetsRoot: path.resolve(__dirname, '..', '..', 'dist'),
+    entry: resolve('src/entry-client.js'),
+    index: resolve('dist/index.html'),
+    assetsRoot: resolve('dist'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     productionSourceMap: true,
@@ -26,8 +26,8 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    entry: path.resolve(__dirname, '..', '..', 'src/entry-client.js'),
-    index: path.resolve(__dirname, '..', '..', 'public/index.html'),
+    entry: resolve('src/entry-client.js'),
+    index: resolve('public/index.html'),
     port: 8080,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
@@ -42,17 +42,11 @@ module.exports = {
   },
   server: {
     env: require('./server.env'),
-    entry: path.resolve(__dirname, '..', '..', 'src/entry-server.js'),
-    port: 8080,
+    entry: resolve('src/entry-server.js'),
+    port: 8090,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
-    // CSS Sourcemaps off by default because relative paths are "buggy"
-    // with this option, according to the CSS-Loader README
-    // (https://github.com/webpack/css-loader#sourcemaps)
-    // In our experience, they generally work as expected,
-    // just be aware of this issue when enabling this option.
     cssSourceMap: false
   }
 }

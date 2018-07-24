@@ -28,24 +28,32 @@ const webpackConfig = merge(baseWebpackConfig, {
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/[name].[chunkhash:8].js'),
-    chunkFilename: utils.assetsPath('js/[name].[chunkhash:8].js')
+    filename: utils.assetsPath('scripts/[name].[chunkhash:8].js'),
+    chunkFilename: utils.assetsPath('scripts/[name].[chunkhash:8].js')
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': env
     }),
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false
+        warnings: false,
+        comparisons: false,
       },
-      sourceMap: true
+      mangle: {
+        safari10: true,
+      },
+      output: {
+        comments: false,
+        ascii_only: true,
+      },
+      sourceMap: true,
     }),
-    new webpack.optimize.ModuleConcatenationPlugin(),
     // extract css into its own file
     new ExtractTextPlugin({
-      filename: utils.assetsPath('css/[name].[contenthash:8].css')
+      filename: utils.assetsPath('styles/[name].[contenthash:8].css')
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
@@ -109,18 +117,6 @@ const webpackConfig = merge(baseWebpackConfig, {
       runtimeCaching: [
         {
           urlPattern: '/',
-          handler: 'networkFirst'
-        },
-        {
-          urlPattern: /\/(top|new|show|ask|jobs)/,
-          handler: 'networkFirst'
-        },
-        {
-          urlPattern: '/item/:id',
-          handler: 'networkFirst'
-        },
-        {
-          urlPattern: '/user/:id',
           handler: 'networkFirst'
         }
       ]

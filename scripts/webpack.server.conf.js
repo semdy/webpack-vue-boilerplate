@@ -31,13 +31,21 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       'process.env': config.server.env
     }),
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false
+        warnings: false,
+        comparisons: false,
       },
-      sourceMap: true
+      mangle: {
+        safari10: true,
+      },
+      output: {
+        comments: false,
+        ascii_only: true,
+      },
+      sourceMap: true,
     }),
-    new webpack.optimize.ModuleConcatenationPlugin(),
     // extract css into its own file
     new ExtractTextPlugin({
       filename: utils.assetsPath('css/[name].[contenthash:8].css')
