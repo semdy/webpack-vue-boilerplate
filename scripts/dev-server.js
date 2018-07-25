@@ -13,7 +13,7 @@ const localIP = require('ip').address()
 
 const isProd = process.env.NODE_ENV === 'production'
 const useMicroCache = process.env.MICRO_CACHE !== 'false'
-const autoOpenBrowser = !!config.server.autoOpenBrowser
+const autoOpenBrowser = config.server.autoOpenBrowser
 const serverInfo =
   `express/${require('express/package.json').version} ` +
   `vue-server-renderer/${require('vue-server-renderer/package.json').version}`
