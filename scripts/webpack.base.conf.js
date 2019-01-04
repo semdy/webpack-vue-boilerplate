@@ -66,7 +66,7 @@ module.exports = {
       },
       {
         test: /\.svg(\?.*)?$/,
-        include:resolve('src/assets/icons'),
+        // include:resolve('src/assets/icons'),
         exclude: /node_modules/,
         loader: 'svg-sprite-loader'
       },
